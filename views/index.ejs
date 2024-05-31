@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Online Resume Builder</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center my-4">Online Resume Builder</h1>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Resume Form</h2>
+        <form id="resume-form">
+          <div class="form-group">
+            <label for="input-name">Name:</label>
+            <input type="text" class="form-control" id="input-name">
+          </div>
+          <div class="form-group">
+            <label for="input-email">Email:</label>
+            <input type="email" class="form-control" id="input-email">
+          </div>
+          <div class="form-group">
+            <label for="input-objective">Objective:</label>
+            <textarea class="form-control" id="input-objective" rows="2"></textarea>
+          </div>
+          <h3>Education</h3>
+          <div id="education-entries">
+            <div class="education-entry">
+              <div class="form-group">
+                <label for="input-school">School:</label>
+                <input type="text" class="form-control input-school">
+              </div>
+              <div class="form-group">
+                <label for="input-degree">Degree:</label>
+                <input type="text" class="form-control input-degree">
+              </div>
+              <div class="form-group">
+                <label for="input-grade">Grade:</label>
+                <input type="text" class="form-control input-grade">
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="addEducationEntry()">Add Education</button>
+
+          <h3>Work Experience</h3>
+          <div id="work-entries">
+            <div class="work-entry">
+              <div class="form-group">
+                <label for="input-company">Company:</label>
+                <input type="text" class="form-control input-company">
+              </div>
+              <div class="form-group">
+                <label for="input-position">Position:</label>
+                <input type="text" class="form-control input-position">
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="addWorkEntry()">Add Work Experience</button>
+
+          <h3>Hobbies</h3>
+          <div class="form-group">
+            <label for="input-hobbies">Hobbies:</label>
+            <textarea class="form-control" id="input-hobbies" rows="2"></textarea>
+          </div>
+
+          <h3>References</h3>
+          <div id="reference-entries">
+            <div class="reference-entry">
+              <div class="form-group">
+                <label for="input-reference-name">Reference Name:</label>
+                <input type="text" class="form-control input-reference-name">
+              </div>
+              <div class="form-group">
+                <label for="input-reference-contact">Reference Contact:</label>
+                <input type="text" class="form-control input-reference-contact">
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="addReferenceEntry()">Add Reference</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Resume Preview</h2>
+        <div id="resume-preview" class="border p-3">
+          <iframe src="/templates/template1.html" style="width:100%; height:500px;" id="resume-iframe"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+  <script>
+    function addEducationEntry() {
+      const newEntry = document.createElement('div');
+      newEntry.className = 'education-entry';
+      newEntry.innerHTML = `
+        <div class="form-group">
+          <label for="input-school">School:</label>
+          <input type="text" class="form-control input-school">
+        </div>
+        <div class="form-group">
+          <label for="input-degree">Degree:</label>
+          <input type="text" class="form-control input-degree">
+        </div>
+        <div class="form-group">
+          <label for="input-grade">Grade:</label>
+          <input type="text" class="form-control input-grade">
+        </div>
+      `;
+      document.getElementById('education-entries').appendChild(newEntry);
+    }
+
+    function addWorkEntry() {
+      const newEntry = document.createElement('div');
+      newEntry.className = 'work-entry';
+      newEntry.innerHTML = `
+        <div class="form-group">
+          <label for="input-company">Company:</label>
+          <input type="text" class="form-control input-company">
+        </div>
+        <div class="form-group">
+          <label for="input-position">Position:</label>
+          <input type="text" class="form-control input-position">
+        </div>
+      `;
+      document.getElementById('work-entries').appendChild(newEntry);
+    }
+
+    function addReferenceEntry() {
+      const newEntry = document.createElement('div');
+      newEntry.className = 'reference-entry';
+      newEntry.innerHTML = `
+        <div class="form-group">
+          <label for="input-reference-name">Reference Name:</label>
+          <input type="text" class="form-control input-reference-name">
+        </div>
+        <div class="form-group">
+          <label for="input-reference-contact">Reference Contact:</label>
+          <input type="text" class="form-control input-reference-contact">
+        </div>
+      `;
+      document.getElementById('reference-entries').appendChild(newEntry);
+    }
+  </script>
+</body>
+</html>
